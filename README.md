@@ -1,24 +1,14 @@
 # Tailcat for Kindle (KUAL)
 
 
-<img src="files/952C4EA5-B27D-4146-BAC3-6D311A1DD433.png">
+<img src="./Mockup-Software-Tailcat-clean-werbe.png">
 
-Like tailscale_kual but without the management plane of tailscale.
+No account. No plan. Just plain tailscale data plane without the management overhead. 
 
 <br>
 <br>
 
-| <samp><samp> </sampy><samp> | Tailcat (tailcat_kual) | Tailscale Taildrop (tailscale_kual) | bare metal service |
-|---|---|---|---|
-| Account required | ✅ No account required | ❌ Requires Tailscale account | ✅ No third-party account required |
-| DNS permissions | ✅ No DNS hassle | ⚠️ May require DNS configuration/permissions - macos tailscaled deamon issues etc. | ⚠️ Depends on setup |
-| Key expiration | ✅ None | ⚠️ Tailscale key expiry 90 days | ⚠️ SSH keys and credentials need management |
-| Allows SSH | ✅  | ✅  | ⚠️ Depends on setup |
-| Allows file transfer | ✅  | ✅  | ⚠️  Depends on setup |
-| Can be reached programmatically? | ✅ Yes. Even over WebRTC |  ❌ Kindle needs to be within same tailnet as App/Service | ❌ Requires dedicated server resources |
 
-
-<br> 
 
 ## Prerequisites:
 
@@ -40,9 +30,9 @@ Like tailscale_kual but without the management plane of tailscale.
 
 >> By default, Tailcat generates a random, temporary tailcat address every time it starts. **Generate Default Key** creates a persistent one. This ensures a reusable tailcat address across **restarts and reboots**.
 
-####  5. Retrieve the tailcat address 
+####  5. Show QR Code
 
->>  The address is printed to the screen and saved as a high-res QR code inside `/mnt/us/tailcat_qr.png` - view inside Koro Reader etc.
+>>  The address is printed to the screen as well as a QR code.
 >>  it looks like **tcomFwWCCcjS5..._dKdnDRYQ8uNGF**
 
 <br><br>
@@ -84,3 +74,4 @@ It does exactly what it says.
 - **Does it work on my kindle?**: If have no idea, this was tested on a pw2 32-bit ARMv7 (ARMel) kindle, which should support all other kindles running the ARMel port. If someone has a newer kindle, I cann add ARMhf support, just open an issue. 
 
 Thank you mitanshu7 for providing the predecessor https://github.com/mitanshu7/tailscale_kual.
+

@@ -1,0 +1,79 @@
+{
+    "items": [
+        {
+            "name": "Tailcat",
+            "priority": 0,
+            "items": [
+                {
+                    "name": "Install / Update Tailcat",
+                    "priority": 0,
+                    "action": "/mnt/us/extensions/tailcat/bin/install_tailcat.sh",
+                    "exitmenu": false,
+                    "refresh": false
+                },
+                {
+                    "name": "Generate Default Key",
+                    "priority": 1,
+                    "action": "/mnt/us/extensions/tailcat/bin/genkey.sh",
+                    "exitmenu": false,
+                    "refresh": false
+                },
+                {
+                    "name": "Start Tailcat",
+                    "priority": 2,
+                    "action": "/mnt/us/extensions/tailcat/bin/start_tailcat.sh",
+                    "exitmenu": false,
+                    "refresh": false
+                },
+                {
+                    "name": "Stop Tailcat",
+                    "priority": 3,
+                    "action": "/mnt/us/extensions/tailcat/bin/stop_tailcat.sh",
+                    "exitmenu": false,
+                    "refresh": false
+                },
+                {
+                    "name": "Start Insecure SSH",
+                    "priority": 4,
+                    "action": "/mnt/us/extensions/tailcat/bin/start_ssh.sh",
+                    "exitmenu": false,
+                    "refresh": false
+                },
+                {
+                    "name": "Show QR code",
+                    "priority": 2,
+                    "action": "/mnt/us/extensions/tailcat/bin/show_qr.sh",
+                    "exitmenu": false,
+                    "refresh": false
+                },
+                {
+                    "name": "Receive folder",
+                    "priority": 5,
+                    "items": [
+                        {
+                            "name": "documents/tailcat",
+                            "priority": 0,
+                            "action": "/mnt/us/extensions/tailcat/bin/set_recvdir.sh /mnt/us/documents/tailcat",
+                            "exitmenu": false,
+                            "refresh": false
+                        },
+                        {
+                            "name": "extensions/tailcat/inbox",
+                            "priority": 1,
+                            "action": "/mnt/us/extensions/tailcat/bin/set_recvdir.sh /mnt/us/extensions/tailcat/inbox",
+                            "exitmenu": false,
+                            "refresh": false
+                        },
+                        {
+                            "name": "/mnt/us (USB root)",
+                            "priority": 2,
+                            "action": "/mnt/us/extensions/tailcat/bin/set_recvdir.sh /mnt/us",
+                            "exitmenu": false,
+                            "refresh": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

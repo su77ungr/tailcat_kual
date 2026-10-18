@@ -1,7 +1,4 @@
-# Tailcat for Kindle (KUAL)
-
-
-<img src="./files/kindle_tailcat_kual_header.webp">
+# Tailcat for Kindle (KUAL) - receive files from anywhere
 
 
 No account. No plan. Just plain tailscale data plane without the management overhead. 
@@ -9,6 +6,7 @@ No account. No plan. Just plain tailscale data plane without the management over
 <br>
 <br>
 
+<img width="800" alt="B2C124F9-F967-4989-80E3-D8788037CA8A" src="https://github.com/user-attachments/assets/172fb885-06d4-47c4-84a5-d541af267d70" />
 
 
 # Prerequisites:

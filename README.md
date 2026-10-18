@@ -51,13 +51,19 @@ No account. No plan. Just plain tailscale data plane without the management over
 
 ##  [ Start Tailcat ]  Tailcat file listener mode (SFTP drop box) 
 
-> Any instance (and anyone) running tailcat can push files to the kindle (works from the Web via WebRTC too)  
 ```bash
 tailcat ping tcomFwWCCcjS5..._dKdnDRYQ8uNGF # should respond with pong 
 tailcat cp tailcat_test.epub tcomFwWCCcjS5..._dKdnDRYQ8uNGF: # keep the : 
 ```
 
 Incoming files are stored  within ```/mnt/us/extensions/tailcat/inbox``` by default. You can change this by `[ Receive folder ]` 
+
+> [!TIP]
+> As an alternative to the CLI `tailcat` - You can upload file on https://tailscale.github.io/tailcat/  **on any web browser**  that supports WebRTC. 
+
+
+<br><br>
+
 
 ##  [ Start Insecure SSH ] Tailcat ssh mode
 
@@ -67,6 +73,10 @@ This allows a seemless ssh tunnel from another device to the kindle without any 
 ```bash
 tailcat ssh <KINDLE_TAILCAT_ADDRESS> 
 ```
+
+<br><br>
+
+
 
 ##  [ Stop Tailcat ]
 

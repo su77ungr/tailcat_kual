@@ -85,12 +85,29 @@ It does exactly what it says.
 
 # Final Notes
 
-- **Insecure SSH Warning**: The "Start Insecure SSH" mode opens an SSH server on your Kindle **without requiring a password or SSH keys**. While this is incredibly convenient for quick file transfers or terminal access, it is inherently dangerous. **Only use this on a trusted network** and remember to tap **Stop Tailcat** when you are finished.
-- **Logs**: Logs are stored in the `/mnt/us/extensions/tailcat/bin/` directory 
-- **Kernel Limitations**: If your Kindle's kernel is older than `2.6.32`, the Tailcat binary will likely crash or fail to start due to missing system calls required by modern Go binaries.
+### Does it run on my kindle? 
 
-- **Does it work on my kindle?**: If have no idea, this was tested on a pw2 32-bit ARMv7 (ARMel) kindle, which should support all other kindles running the ARMel port. If someone has a newer kindle, I cann add ARMhf support, just open an issue. 
+- **Device Architecture** If your device runs a 32-Bit ARMel port (ARM7), yes - ARMhf is not supported bc qrencode right now.
+- **Kernel Limitations**: If your Kindle's kernel is older than `2.6.32`, the Tailcat binary will likely crash or fail to start due to missing system calls required by modern Go binaries.
+If have no idea, this was tested on a pw2 32-bit ARMv7 (ARMel) kindle, which should support all other kindles running the ARMel port. If someone has a newer kindle, I cann add ARMhf support, just open an issue.
+
+| Device / Model | Architecture | Supported Jailbreak / Method | Status |
+|---|---|---|---|
+| Kindle Paperwhite 2 (PW2) | 32-bit ARMv7 (ARMel) | Winterbreak v.1.3.7 | Supported |
+
+Please fell free to add your device to the README. 
+
+
+### Security Warnings 
+
+- **This is still under development, expect breaking changes.**
+- **Insecure SSH**: "Start Insecure SSH" mode opens an SSH server on your Kindle **without requiring a password or SSH keys**. Use it with care.
+- **Regularly** mint a new tailcat address using `[ Generate key ]` 
+
+### Development / Contributing
+
+- run ``shellcheck tailcat/bin/*.sh`` from project's root, then open a PR
+
+### Thanks 
 
 Thank you mitanshu7 for providing the predecessor https://github.com/mitanshu7/tailscale_kual.
-
-

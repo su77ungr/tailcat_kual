@@ -1,7 +1,9 @@
 #!/bin/sh
+# shellcheck source=paths.sh
+. /mnt/us/extensions/tailcat/bin/paths.sh
 set -eu
 
-BASE="/mnt/us/qrencode"
+BASE=$QR_DIR
 WORK="/tmp/kindle-qrencode-setup"
 ARCH="arm-linux-gnueabi"
 
@@ -152,4 +154,3 @@ echo
 echo "Generate a PNG:"
 echo "  $BASE/run-qrencode -o $BASE/test.png 'Hello Kindle'"
 echo
-

@@ -1,18 +1,31 @@
-#!/bin/sh
-BIN=/mnt/us/extensions/tailcat/bin
-TAILCAT=$BIN/tailcat
-ADDRFILE=$BIN/tailcat.address
-SECRET=/mnt/us/tailcat_secret.txt
-QR=/mnt/us/qrencode/run-qrencode
-QR_IMAGE=/mnt/us/tailcat_qr.png
-KEYFILE=$BIN/.config/tailcat/keys/default.private.json
+# shellcheck shell=sh
+# shellcheck source=paths.sh
+. /mnt/us/extensions/tailcat/bin/paths.sh
+
+# ---- display ---------------------------------------------------------
 WRAP=39          # characters per line
 ROW=20           # first eips row used for output
 
+# ---- environment -----------------------------------------------------
 export HOME="$BIN"
 export XDG_CONFIG_HOME="$BIN/.config"   # make the key location explicit
 mkdir -p "$XDG_CONFIG_HOME"
 cd "$BIN" || exit 1
+
+# ---- helpers ---------------------------------------------------------
+
+# Append to $LOG and show on the e-ink status line
+log() {
+    echo "$1" >> "$LOG"
+    eips 0 22 "$(printf '%-50s' "$1")" 2>/dev/null
+}
+
+# Receive dir: configured via set_recvdir.sh, else default
+get_recv_dir() {
+    d="$(cat "$RECVDIR_CONF" 2>/dev/null)"
+    [ -n "$d" ] || d=$DEFAULT_RECV_DIR
+    printf '%s\n' "$d"
+}
 
 # Print text wrapped at $WRAP chars, to stdout and to the e-ink screen
 show_wrapped() {
@@ -35,7 +48,6 @@ extract_addr() {
     fi
     echo "$A"
 }
-
 
 # Show caption + address at the top, QR code near the bottom
 show_qr() {

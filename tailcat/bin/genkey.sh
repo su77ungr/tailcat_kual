@@ -1,10 +1,11 @@
 #!/bin/sh
+# shellcheck source=common.sh
 . /mnt/us/extensions/tailcat/bin/common.sh
 LOG=$BIN/tailcat_genkey.log
 
 echo "[$(date)] Generating Tailcat key..." > "$LOG"
 
-# now force overwrites any existing key.
+# --force overwrites any existing key.
 "$TAILCAT" genkey --key=default --fixed-region --force >> "$LOG" 2>&1 < /dev/null
 STATUS=$?
 

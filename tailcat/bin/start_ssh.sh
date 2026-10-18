@@ -1,6 +1,6 @@
 #!/bin/sh
+# shellcheck source=common.sh
 . /mnt/us/extensions/tailcat/bin/common.sh
-PIDFILE=$BIN/tailcat.pid
 LOG=$BIN/tailcat_ssh.log
 
 echo "[$(date)] Starting no-auth SSH..." > "$LOG"
@@ -12,7 +12,7 @@ if [ -f "$PIDFILE" ]; then
     kill "$(cat "$PIDFILE")" 2>/dev/null
     rm -f "$PIDFILE"
 fi
-pkill -f "$TAILCAT" 2>/dev/null
+pkill -f "$TAILCAT serve" 2>/dev/null
 sleep 1
 
 # Remove the old address file so we only accept a fresh one

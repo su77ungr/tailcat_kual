@@ -89,7 +89,6 @@ It does exactly what it says.
 
 - **Device Architecture** If your device runs a 32-Bit ARMel port (ARM7), yes - ARMhf is not supported bc qrencode right now.
 - **Kernel Limitations**: If your Kindle's kernel is older than `2.6.32`, the Tailcat binary will likely crash or fail to start due to missing system calls required by modern Go binaries.
-If have no idea, this was tested on a pw2 32-bit ARMv7 (ARMel) kindle, which should support all other kindles running the ARMel port. If someone has a newer kindle, I cann add ARMhf support, just open an issue.
 
 | Device / Model | Architecture | Supported Jailbreak / Method | Status |
 |---|---|---|---|

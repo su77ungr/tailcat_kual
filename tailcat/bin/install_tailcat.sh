@@ -1,16 +1,16 @@
 #!/bin/sh
+# shellcheck source=paths.sh
+. /mnt/us/extensions/tailcat/bin/paths.sh
 
-BIN="/mnt/us/extensions/tailcat/bin"
-VERSION="0.7.0"
-URL="https://github.com/tailscale/tailcat/releases/download/v${VERSION}/tailcat_${VERSION}_linux_armv7.tar.gz"
+mkdir -p "$BIN" || exit 1
 
-ARCHIVE="/mnt/us/tailcat_${VERSION}.tar.gz"
+URL="https://github.com/tailscale/tailcat/releases/download/v${TAILCAT_VERSION}/tailcat_${TAILCAT_VERSION}_linux_armv7.tar.gz"
+
+ARCHIVE="/mnt/us/tailcat_${TAILCAT_VERSION}.tar.gz"
 TMP="/mnt/us/tailcat_install_tmp"
 LOG="$BIN/install_tailcat.log"
 QR_SCRIPT="$BIN/install_qrencode.sh"
 QR_WORK="/tmp/kindle-qrencode-setup"
-
-mkdir -p "$BIN" || exit 1
 
 log() {
     echo "$1" >> "$LOG"
@@ -45,16 +45,16 @@ if [ -z "$TAILCAT_BIN" ] || [ ! -f "$TAILCAT_BIN" ]; then
     exit 1
 fi
 
-if ! cp "$TAILCAT_BIN" "$BIN/tailcat"; then
+if ! cp "$TAILCAT_BIN" "$TAILCAT"; then
     log "Failed to install binary"
     rm -rf "$TMP"
     rm -f "$ARCHIVE"
     exit 1
 fi
 
-chmod 755 "$BIN/tailcat"
+chmod 755 "$TAILCAT"
 
-if [ ! -x "$BIN/tailcat" ]; then
+if [ ! -x "$TAILCAT" ]; then
     log "Tailcat binary is not executable"
     rm -rf "$TMP"
     rm -f "$ARCHIVE"
@@ -67,7 +67,7 @@ rm -f "$ARCHIVE"
 log "Tailcat installed successfully"
 
 # ----------------------------------------------------------------------
-# qrencode (separate script; skips itself if already installed)
+# qrencode (separate script)
 # ----------------------------------------------------------------------
 if [ ! -f "$QR_SCRIPT" ]; then
     log "install_qrencode.sh not found"

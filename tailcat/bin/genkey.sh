@@ -4,17 +4,7 @@ LOG=$BIN/tailcat_genkey.log
 
 echo "[$(date)] Generating Tailcat key..." > "$LOG"
 
-# If a key already exists, don't clobber it: genkey prints the address
-# only once, so show the one we saved earlier.
-if [ -s "$KEYFILE" ] && [ -s "$ADDRFILE" ] && [ "$1" != "--rotate" ]; then
-    echo "Key already exists. Saved address:"
-    show_wrapped "$(cat "$ADDRFILE")"
-    exit 0
-fi
-
-# Fresh generation (or rotate): remove the old key, then create it.
-# --fixed-region keeps the address identical across restarts.
-[ -f "$KEYFILE" ] && "$TAILCAT" genkey --delete --key=default >> "$LOG" 2>&1
+# now force overwrites any existing key.
 "$TAILCAT" genkey --key=default --fixed-region --force >> "$LOG" 2>&1 < /dev/null
 STATUS=$?
 

@@ -1,7 +1,8 @@
 # Tailcat for Kindle (KUAL)
 
 
-<img src="./Mockup-Software-Tailcat-clean-werbe.png">
+<img src="./files/kindle_tailcat_kual_header.webp">
+
 
 No account. No plan. Just plain tailscale data plane without the management overhead. 
 
